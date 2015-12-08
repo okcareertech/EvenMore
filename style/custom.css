@@ -1,0 +1,721 @@
+@charset "utf-8";
+/* CSS Customizations for Moodle 2.7 "EVEN MORE" Theme
+ *
+ Owner: Oklahoma Department of Career and Technology Education
+ Copyright: Copyright 2015 OMES
+ Version: 1.0
+ Last Modified: 2015.06.16 18:35
+ Author(s): Robert E. Breisch; Matthew Orr;...
+ *
+ */
+
+/* Theme Color Reference:
+#3e66a3 - ctYOU blue, link hover/focus
+#C2CFE2 - light blue, highlights
+#DCECFF - lighter brighter blue, can be used in unison with #3e66a3 and will be accessible in contrast.
+*/
+
+
+/* Fonts
+*******************************************************************************
+*******************************************************************************/
+/* Google API "Sanchez" Font
+*************************************/
+@font-face {
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sanchez'), local('Sanchez-Regular'), url(https://fonts.gstatic.com/s/sanchez/v4/ASmipTgPwTrjcfmzf6Zfwg.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sanchez/v4/mx466fsxfR1AA3OwUm3waQ.woff) format('woff');
+}
+
+
+/* Structure and Layout
+*******************************************************************************
+*******************************************************************************/
+body {
+  padding-top: 40px;
+}
+#page {
+  background: none repeat scroll 0 0 #fff;
+  min-width: 320px;
+  padding: 1%;
+  width: 98%;
+}
+@media screen and (min-width: 980px) {
+  #page {
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: 6px 0 4px -4px #666, -6px 0 4px -4px #666;
+    margin-top: -5px;
+    padding: 1em;
+    position: relative;
+    width: 940px;
+  }
+  .page-overlap-hack {
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: 0 5px 5px 1px rgba(255, 255, 255, 1);
+    height: 5px;
+    margin: -4px auto 0;
+    padding: 0 1em;
+    width: 940px;
+    z-index: 4031;
+}
+}
+@media screen and (max-width: 979px) {
+  body {
+    padding: 0;
+  }
+  .navbar-fixed-top {
+    margin-bottom: 0;
+  }
+  #page {
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: none;
+    margin: 0;
+    min-width: 320px;
+    padding: 1%;
+    width: 98%;
+  }
+  .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* Responsive Grid System - http://www.responsivegridsystem.com/ or github: https://github.com/grahammiller/ResponsiveGridSystem
+*******************************************************************************
+*******************************************************************************/
+/* Row Section */
+.even-more-row {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+/* Row Grouping */
+.even-more-row:before,
+.even-more-row:after {
+  content:"";
+  display:table;
+}
+.even-more-row:after {
+  clear:both;
+}
+.even-more-row {
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+/* Grid Column Setup */
+.column {
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+.column:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+/* Grid of Three (3) */
+.c3of3 {
+  width: 100%; 
+}
+.c2of3 {
+  width: 66.13%; 
+}
+.c1of3 {
+  width: 32.26%; 
+}
+/* Grid of Four (4) */
+.c4of4 {
+  width: 100%; 
+}
+.c3of4 {
+  width: 74.6%; 
+}
+.c2of4 {
+  width: 49.2%; 
+}
+.c1of4 {
+  width: 23.8%; 
+}
+@media screen and (max-width : 767px)  {
+  /*  4 column configurations - GO FULL WIDTH AT LESS THAN 767 PIXELS */
+  .c4of4 {
+    width: 100%; 
+  }
+  .c3of4 {
+    width: 100%; 
+  }
+  .c2of4 {
+    width: 100%; 
+  }
+  .c1of4 {
+    width: 100%; 
+  }
+}
+@media screen and (max-width: 568px) {
+  /*  Remove margins and change width to 568px (seems to cover iPhone's high res screens better, but you could use 480px if want less coverage), could also add an optional tablet media query to handle from 480px/568px to 980px */
+  .column { 
+    margin: 1% 0 1% 0%;
+  }
+  /*  3 column configurations - GO FULL WIDTH AT LESS THAN 480 PIXELS */
+  .c3of3 {
+    width: 100%; 
+  }
+  .c2of3 {
+    width: 100%; 
+  }
+  .c1of3 {
+    width: 100%;
+  }
+  /*  4 column configurations - GO FULL WIDTH AT LESS THAN 480 PIXELS */
+  .c4of4 {
+    width: 100%; 
+  }
+  .c3of4 {
+    width: 100%; 
+  }
+  .c2of4 {
+    width: 100%; 
+  }
+  .c1of4 {
+    width: 100%; 
+  }
+  /* Set moodle's core fluid rows to be less than 100% so that the additional padding of various items within don't cause horizontal scrolling */
+  .row-fluid {
+    width: 96%;
+  }
+}
+
+
+/* General Formatting - Headings, Links, etc.
+*******************************************************************************
+*******************************************************************************/
+h1, h2, h3, h4, h5, h6, .title {
+  color: inherit;
+  font-family: 'Sanchez', Times, "Times New Roman", Georgia, serif;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 10px 0;
+  text-rendering: optimizelegibility;
+}
+h1, h2, h3, h4, h5, h6, .title {
+  text-transform:none !important;
+}
+.column h1, .column h2, .column h3, .column h4, .column h5, .column h6, .column .title {
+  color: #900;
+}
+h3 {
+  font-size: 20px;
+}
+h5 {
+  color: #777;
+}
+a:link, a {
+  color: #900;
+  text-decoration:underline;
+}
+a:hover, a:focus {
+  background-color: #DCECFF;
+  color: #3e66a3;
+  text-decoration:underline;
+}
+
+/* Top Navigation Bar
+*******************************************/
+.navbar-inverse .navbar-inner {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: none;
+  background-repeat: repeat-x;
+  border-color: #252525;
+}
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+  color: #ececec;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.navbar .brand {
+  font-size: 15px;
+  text-decoration: none;
+}
+.navbar-inverse .brand:focus, .navbar-inverse .brand:hover, .navbar-inverse .nav > li:focus, .navbar-inverse .nav > li:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+.navbar-inverse .nav > li > a:focus, .navbar-inverse .nav > li > a:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+
+
+/* Branding
+*******************************************************************************
+*******************************************************************************/
+a.logo {
+  background: url([[setting:logo]]) no-repeat 0 0;
+  display: block;
+  float: left;
+  height: 75px;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+}
+
+.dir-rtl a.logo {
+  background: url([[setting:logo]]) no-repeat 100% 0;
+  display: block;
+  float: right;
+}
+
+
+/* Button styles (for frontpage blocks)
+*******************************************************************************
+*******************************************************************************/
+/* Button Red Large styles */
+.btn.red.lg {
+  background: none repeat scroll 0 0 #900;
+  border: 1px solid #900;
+  color: #fff;
+  font-size: 15px;
+  padding: 8px 20px;
+  text-decoration:none;
+  text-transform: uppercase;
+}
+/* Button Red styles */
+.btn.red {
+  background: none repeat scroll 0 0 #900;
+  border: 1px solid #900;
+  color: #fff;
+  text-decoration:none;
+  text-transform: uppercase;
+}
+.btn.red.lg:hover, .btn.red.lg:focus, .btn.red:hover, .btn.red:focus {
+  background: none repeat scroll 0 0 #3e66a3;
+  border: 1px solid #C2CFE2;
+}
+
+
+/* Feature Slideshow
+*******************************************************************************
+*******************************************************************************/
+/*NOTE: When Javascript is disabled/unavailable, this slideshow must be set to display on the page to meet accessibility compliance.*/
+/* Keep this override in unless have <div class="container..."> removed from the slideshow: */
+.column div.container {
+  width:auto;
+}
+#main-slider {
+  margin: 0 0 1em !important;
+}
+#main-slider .flex-control-nav {
+  bottom: 1em;
+  margin: 0 0 -3em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+#main-slider .flex-viewport {
+  max-height: 2000px;
+  transition: all 1s ease 0s;
+  background: url("//192.168.210.29/pluginfile.php/1/theme_even_more/backgroundimage/1432164848/background_bg.jpg") repeat scroll 0 0 transparent;
+}
+#main-slider .flex-caption {
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  color: #fff;
+  display:none;
+  margin: 0;
+  padding: 2% 2% 2% 3%;
+  position: static;
+  right: 0;
+  width: 95%;
+}
+
+
+/* Connect With Us box styles (for frontpage blocks, such as list of social media links, etc)
+*******************************************************************************
+*******************************************************************************/
+/* social media links 
+*************************
+e.g. <a class="social-media-link" href="..." target="_blank" aria-label="ctYOUniverse Facebook"><i class="fa fa-facebook fa-2x"></i></a> */
+a.social-media-link {
+  background: none repeat scroll 0 0 #b00;
+  border-radius: 4em;
+  color: #fff;
+  display: inline-block;
+  height: 2em;
+  overflow: hidden;
+  padding: 0.5em;
+  text-align: center;
+  width: 2em;
+}
+a.social-media-link:hover, a.social-media-link:focus {
+  background: none repeat scroll 0 0 #3E66A3;
+  border-radius: 4em;
+  color:#DCECFF;
+  display: inline-block;
+  height: 2em;
+  overflow: hidden;
+  padding: 0.5em;
+  text-align: center;
+  width: 2em;
+}
+/* Call button link
+*************************
+e.g. <a class="call-link" href="tel:+1-800-654-4502"><i class="fa fa-phone fa-2x"></i>Call 1-800-654-4502</a> */
+a.call-link i {
+  background: none repeat scroll 0 0 transparent;
+  border-radius: 4em;
+  color: #b00;
+  float:left;
+  padding: 0 0.25em 0 0;
+}
+a.call-link {
+  display: inline-block;
+padding: 0.5em;
+text-decoration:none;
+}
+
+/* Feature Info Box (for frontpage blocks)
+*******************************************************************************
+*******************************************************************************/
+.feature-info-box {
+  background: #f7f7f7;
+  float:left;
+}
+.feature-info-link {
+  margin: 3.5em 2em;
+  vertical-align: middle;
+}
+.feature-info-image {
+  margin: 1.5em 3em;
+  vertical-align: middle;
+}
+
+
+/* Link list box styles (for frontpage blocks, such as list of Digital Courses)
+*******************************************************************************
+*******************************************************************************/
+/*.link-list h4 {
+  border-left: 15px solid #990000;
+  color: #747474;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 150%;
+  margin-left: -0.78em;
+  padding-left: 0.5em;
+}
+.link-list h3 {
+  border-bottom: 1px solid #e3e3e3;
+  color: #900;
+  font-family: Arial, "Helvetica Neue", Helvetica, Gotham, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}*/
+/* To remove bullets
+.link-list ul, .link-list ol {
+  list-style: outside none none;
+  margin-left: 0;
+}
+*/
+
+/* List styles for the Digital Courses section */
+.link-list h3 {
+  border-left: medium none;
+  color: #900;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 150%;
+  margin-left: 0;
+  padding-left: 0;
+}
+.link-list h4 {
+  border-bottom: medium none;
+  color: #777;
+  font-family: Arial,"Helvetica Neue",Helvetica,Gotham,sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+/* For link lists to have bullets in front of them: 
+.link-list ul, .link-list ol {
+  list-style: inside none disc;
+  margin-left: 0.5em;
+}
+*/
+/* To remove bullets, but place font awesome icon in front of them: */
+.link-list ul, .link-list ol {
+  list-style: outside none none;
+  margin-left: 0;
+}
+/* Link Lists gray color option, where don't look like links:
+.link-list ul li, .link-list ul li a {
+  color: #747474;
+  font-size: 12px;
+  line-height: 140%;
+  text-decoration: none;
+}
+.link-list ul li:hover, .link-list ul li a:hover, .link-list ul li:focus, .link-list ul li a:focus  {
+  background: #DCECFF;
+  color: #3e66a3;
+  font-size: 12px;
+  line-height: 140%;
+  text-decoration: none;
+}
+*/
+.link-list ul li, .link-list ul li a {
+  color: #900;
+  font-size: 14px;
+  line-height: 140%;
+  text-decoration: none;
+}
+.link-list ul li:hover, .link-list ul li a:hover, .link-list ul li:focus, .link-list ul li a:focus {
+  background: none repeat scroll 0 0 #dcecff;
+  color: #3e66a3;
+  font-size: 14px;
+  line-height: 140%;
+  text-decoration: underline;
+}
+
+
+
+/* Summary list box styles (for frontpage blocks, such as list of Digital Courses)
+*******************************************************************************
+*******************************************************************************/
+.summary-list h4, .summary-list  h5 {
+  color: #777;
+  font-family: Arial, "Helvetica Neue", Helvetica, Gotham, sans-serif;
+}
+/* Button link styles for use in block content */
+.summary-list a.btn {
+  background: none repeat scroll 0 0 #444;
+  border: 1px solid #222;
+  clear: both;
+  color: #fff;
+  display: inline-block;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: bold;
+  padding: 0.15em 0.5em;
+  text-align: right;
+  text-decoration:none;
+  text-shadow: none;
+}
+.summary-list a.btn:hover, .summary-list a.btn:focus {
+  background: none repeat scroll 0 0 #3e66a3;
+  border: 1px solid #C2CFE2;
+  color: #fff;
+  text-decoration:none;
+}
+.summary-list .link-bar {
+text-align: right;
+}
+.summary-list a.btn:after {
+  content:"";
+}
+@media screen and (min-width: 980px) {
+/* Minimally styled summary list links here are set to apply on large screens... perhaps following the assumption that customers will be mouse ninjas with the utmost clicking precision: */
+.summary-list a.btn {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  box-shadow: none;
+  clear: both;
+  color: #900;
+  display: inline-block;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: normal;
+  padding: 0.15em 0.5em;
+  text-align: right;
+  text-shadow: none;
+}
+.summary-list a.btn:after {
+  content:" >>";
+}
+.summary-list a.btn:hover, .summary-list a.btn:focus {
+  background: none repeat scroll 0 0 #dcecff;
+  border: medium none;
+  color: #3e66a3;
+  text-decoration: underline;
+}
+/* end of minimally styled link section */
+}
+
+
+
+/* Twitter Feed box styles (for frontpage blocks, such as list of Digital Courses)
+*******************************************************************************
+*******************************************************************************/
+.twitter-feed {
+  background: transparent;
+}
+@media screen and (max-width: 568px) {
+/* Currently set this to not appear in mobile view, but if needed you can change display and the rest of this will adjust feed so that it does not expand full-width on small screens so that a user doesn't get stuck within it scrolling.  This should give enough space on the sides so the user can push past the widget if they so desire. */
+.twitter-feed-widget {
+  display: none;
+  margin: 0 auto;
+  width:80%;
+}
+}
+
+
+/* Aside Menu Blocks, General Block box styles (for frontpage blocks, main region)
+*******************************************************************************
+*******************************************************************************/
+/* Hide the main center content "region", it is not used in this theme's frontpage*/
+#page-site-index .empty-region-side-post.used-region-side-pre #region-main.span8, #page-site-index .jsenabled.docked-region-side-post.used-region-side-pre #region-main.span8 {
+  display: none;
+  width: 74.359%;
+}
+#region-main.span8 {
+  border:none;
+  box-shadow:none;
+}
+/* Removing all borders and box-shadows off the blocks */
+.block {
+  border: medium none;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* Adjust blocks to stack next to each other on frontpage */
+#page-site-index .block {
+  background-color: #ffffff;
+  border-color: #ededed -moz-use-text-color -moz-use-text-color;
+  border-radius: 0;
+  border-style: solid none none;
+  border-width: 1px medium medium;
+  box-shadow: none;
+  float: left;
+  margin: 1% 0 1% 1.6%;
+  min-height: 20px;
+  padding: 8px 0;
+}
+#block-region-side-post {
+clear: both;
+margin-left: -1%;
+width: 100%;
+}
+#block-region-side-post .block {
+width: 23.0769%
+}
+
+@media screen and (max-width: 568px) {
+/* Adjust blocks to to go full-width when screens get small on frontpage */
+#page-site-index .block, #block-region-side-post .block {
+  background-color: #ffffff;
+  border-color: #ededed -moz-use-text-color -moz-use-text-color;
+  border-radius: 0;
+  border-style: solid none none;
+  border-width: 1px medium medium;
+  box-shadow: none;
+  float: left;
+  margin: 1% 0 1% 1.6%;
+  min-height: 20px;
+  padding: 8px 0;
+  width: 91%; /* Setting to 91% helps prevent horizontal scrolling for these at small width screens */
+}
+}
+#page-site-index #inst1 {
+  margin-left: 0;
+}
+.block .header h2 {
+  color: #3e66a3;
+  display: block;
+  font-family: Sanchez;
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 0;
+  padding: 3px 5px;
+  text-shadow: none;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+.block a {
+  color: #3e66a3;
+  text-decoration: underline;
+}
+.block .tree_item {
+  color: #3e66a3;
+  text-decoration: underline;
+}
+.block a:hover {
+  color: #a00;
+  text-decoration: underline;
+}
+.block .tree_item:hover {
+  color: #a00;
+  text-decoration: underline;
+}
+
+
+/* Footer and Footnote Section
+*******************************************************************************
+*******************************************************************************/
+/* This wraps around entire footer section of page, including footnote */
+#page-footer {
+  border-top: medium none;
+}
+/* Entire Footnote information section */
+.info-footer {
+  text-align:left;
+}
+.info-footer a {
+  border-bottom: 0.1em dotted #777;
+  color: #333;
+  text-decoration: none;
+}
+.info-footer a:hover, .info-footer a:focus {
+  background: #DCECFF;
+  border-bottom: 0.1em dotted #3e66a3;
+  color: #3e66a3;
+  text-decoration: none;
+}
+/* Inline footer Navigation links */
+.footer-links {
+}
+.info-footer .footer-links a {
+  border-bottom: medium none;
+  color: #333;
+  padding: 0 0.25em 0 0;
+  text-decoration: none;
+}
+/* CIMC info section */
+.cimc-info-footer {
+  text-align:left;
+}
+.cimc-footer-logo a {
+  border-bottom: medium none;
+  display: inline-block;
+  width: 130px;
+}
+.cimc-footer-logo a:hover {
+  border-bottom: medium none;
+}
+.cimc-footer-logo img {
+  width: 130px;
+}
+/* CareerTech info section */
+.ct-info-footer {
+  text-align:right;
+}
+.ct-footer-logo a {
+  border-bottom: medium none;
+  display: inline-block;
+  width: 250px;
+}
+.ct-footer-logo a:hover {
+  border-bottom: medium none;
+}
+.ct-footer-logo img {
+  width: 250px;
+}
+/* Hide the Site Link for Moodle at the bottom */
+.sitelink {
+  display:none;
+}
+#page-footer .logininfo {
+  display:none;
+}
+
+
+/* Custom CSS Settings
+-------------------------*/
+[[setting:customcss]]
+
+
+
+
+
+
